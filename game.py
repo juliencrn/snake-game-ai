@@ -145,7 +145,7 @@ class SnakeGameAI:
             new_direction_index = (
                 current_direction_index + 1) % len(close_wise)
             new_direction = close_wise[new_direction_index]
-        if np.array_equal(action, [1, 0, 1]):  # left turn r -> u -> l -> d
+        else: # np.array_equal(action, [1, 0, 1]):  # left turn r -> u -> l -> d
             new_direction_index = (
                 current_direction_index - 1) % len(close_wise)
             new_direction = close_wise[new_direction_index]
