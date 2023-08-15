@@ -28,7 +28,7 @@ BLOCK_SIZE = 20
 SPEED = 20
 
 
-class SnakeGame:
+class SnakeGameAI:
 
     def __init__(self, w=640, h=480):
         self.w = w
@@ -78,7 +78,7 @@ class SnakeGame:
         # 3. check if game over
         game_over = False
         reward = 0
-        if self._is_collision() or self._is_iterating_too_longer():
+        if self.is_collision() or self._is_iterating_too_longer():
             game_over = True
             reward = -10
             return reward, game_over, self.score
@@ -99,7 +99,7 @@ class SnakeGame:
 
     # pt is used to define a danger area
     # if pt is None, is_collision work is real time as expected
-    def _is_collision(self, pt=None):
+    def is_collision(self, pt=None):
         if pt is None:
             pt = self.head
 
